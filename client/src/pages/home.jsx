@@ -62,7 +62,17 @@ const Home = () => {
           onChange={(e) => setUrl(e.target.value)}
           style={styles.input}
         />
-        <button type="submit" style={styles.button}>Save</button>
+       <button
+  type="submit"
+  disabled={isSaving}
+  style={{
+    ...styles.button,
+    opacity: isSaving ? 0.6 : 1,
+    cursor: isSaving ? 'not-allowed' : 'pointer',
+  }}
+>
+  {isSaving ? 'Saving...' : 'Save'}
+</button>
       </form>
       <div style={styles.bookmarkList}>
         {bookmarks.map((bm) => (
