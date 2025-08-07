@@ -9,7 +9,10 @@ import bookmarkRoutes from './routes/Bookmark.routes.js';
 dotenv.config();
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:5173', 
+  origin: [
+    'http://localhost:3000',
+    'https://link-saver-lyart.vercel.app'
+  ],
   credentials: true
 }));
 app.use(express.json());
