@@ -6,7 +6,7 @@ const Home = () => {
   const [bookmarks, setBookmarks] = useState([]);
   const [url, setUrl] = useState('');
   const token = localStorage.getItem('token');
-
+  const [isSaving, setIsSaving] = useState(false); 
   const fetchBookmarks = async () => {
     try {
       const res = await axios.get('https://link-saver-qk9d.onrender.com/api/bookmarks', {
@@ -20,6 +20,8 @@ const Home = () => {
 
   const handleAdd = async (e) => {
     e.preventDefault();
+      if (!url.trim()) return;
+     setIsSaving(true); 
     try {
       await axios.post('https://link-saver-qk9d.onrender.com/api/bookmarks', { url }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -28,7 +30,9 @@ const Home = () => {
       fetchBookmarks();
     } catch (err) {
       alert('Failed to save bookmark');
-    }
+    } finally {
+    setIsSaving(false);
+  }
   };
 
   const handleDelete = async (id) => {
