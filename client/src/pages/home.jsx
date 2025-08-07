@@ -9,7 +9,7 @@ const Home = () => {
 
   const fetchBookmarks = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/bookmarks', {
+      const res = await axios.get('https://link-saver-qk9d.onrender.com/api/bookmarks', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setBookmarks(res.data);
@@ -21,7 +21,7 @@ const Home = () => {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/bookmarks', { url }, {
+      await axios.post('https://link-saver-qk9d.onrender.com/api/bookmarks', { url }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUrl('');
@@ -33,7 +33,7 @@ const Home = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/bookmarks/${id}`, {
+      await axios.delete(`https://link-saver-qk9d.onrender.com/api/bookmarks/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchBookmarks();
