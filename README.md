@@ -10,11 +10,13 @@ Automatically fetch summaries of links using Open Graph (OG) metadata
 View and delete their saved bookmarks
 
 🌐 Live Demo
-You can deploy it to platforms like Vercel (frontend) and Render/Heroku/Railway (backend)
+Vercel (frontend) and Render (backend)
 
 Frontend: https://link-saver-lyart.vercel.app/
 
 Backend: https://link-saver-qk9d.onrender.com
+
+
 Login Credentials : 
 email-testuser@example.com
 
